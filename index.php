@@ -3,7 +3,7 @@
 require_once 'Controllers/ActionController.php';
 
 if(isset($_GET['action']) && $_GET['action']=="modifier"){
-    actionUpdate();
+    actionUpdate(); 
 }
 else if(isset($_GET['action']) && $_GET['action']=="valider"){
     update();
@@ -17,6 +17,9 @@ else if(isset($_GET['action']) && $_GET['action']=="valider"){
  else if(isset($_GET['action']) && $_GET['action']=="ajouter"){
     add();
  }
+ else if(isset($_GET['search'])){
+    search();
+ }
 else{
-    listing();
+    listing(); 
 }

@@ -35,3 +35,9 @@ function add(){
     $add->add(); // On appelle la méthode Update dans notre objet
   listing();
 }
+
+function search(){
+    $search = new Intervention(); // Je crée mon objet qui utilise la class Intervention
+    $listing = $search->search(); // On appelle la méthode Update dans notre objet
+    require_once 'views/listing.php';
+}

@@ -1,8 +1,8 @@
 <?php ob_start();?>
-
-<table class="table">
+<div class="table-responsive">
+<table class="table  table-striped table-hover">
             <!-- entete du tableau -->
-            <thead>
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Date</th>
@@ -19,10 +19,10 @@
         foreach($listing as $ligne){
             echo "<tr scope='row'>";
                 echo "<td><b>".$ligne['id_int']."</b></td>";
-                echo "<td>".$ligne['date_int']."</td>";
+                echo "<td>".date("d/m/Y", strtotime($ligne['date_int']))."</td>";
                 echo "<td>".$ligne['step_int']."</td>";
                 echo "<td>".$ligne['name_int']."</td>";
-                echo "<td><a href='?action=modifier&id=".$ligne['id_int']."&date=".$ligne['date_int']."&etage=".$ligne['step_int']."&intervention=".$ligne['name_int']."'>modifier</a> - <a href='?action=supprimer&id=".$ligne['id_int']."'>Supprimer</a></td>";
+                echo "<td><a href='?action=modifier&id=".$ligne['id_int']."&date=".$ligne['date_int']."&etage=".$ligne['step_int']."&intervention=".$ligne['name_int']."' class='btn btn-warning'>Modifier</a>  <a href='?action=supprimer&id=".$ligne['id_int']."'  class='btn btn-danger'>Supprimer</a></td>";
             echo "</tr>";
 
         }
@@ -33,7 +33,7 @@
 
             </tbody>
         </table>
-
+    </div>
         <?php 
         
         $contenuAafficher =  ob_get_clean();
