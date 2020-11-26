@@ -28,6 +28,8 @@ class Intervention extends Database
         $ajouter->execute(); //On exécute la requête
      }
 
+     
+
     public function all(){
         $interventions = $this->connect()->prepare('SELECT * FROM interventions ORDER BY date_int desc');
         $interventions->execute();

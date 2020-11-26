@@ -22,7 +22,41 @@
                 echo "<td>".date("d/m/Y", strtotime($ligne['date_int']))."</td>";
                 echo "<td>".$ligne['step_int']."</td>";
                 echo "<td>".$ligne['name_int']."</td>";
-                echo "<td><a href='?action=modifier&id=".$ligne['id_int']."&date=".$ligne['date_int']."&etage=".$ligne['step_int']."&intervention=".$ligne['name_int']."' class='btn btn-warning'>Modifier</a>  <a href='?action=supprimer&id=".$ligne['id_int']."'  class='btn btn-danger'>Supprimer</a></td>";
+                echo "<td> 
+                <div class='row'>
+                <div class='col-12 col-md-6 p-0 m-0'>
+                <button type='button' class='btnModal btn btn-warning btn-sm' data-toggle='modal'
+                data-id_int='".$ligne['id_int']."'
+                data-date_int='".$ligne['date_int']."'
+                data-step_int='".$ligne['step_int']."'
+                data-name_int='".$ligne['name_int']."'
+                data-target='#exampleModal'>
+  Modifier
+</button>
+
+
+                </div>
+                <div class='col-12 col-md-6  p-0 m-0'>
+
+                <button type='button' class='btnSupModal btn btn-danger btn-sm' data-toggle='modal'
+                data-id_int='".$ligne['id_int']."'
+                data-date_int='".$ligne['date_int']."'
+                data-step_int='".$ligne['step_int']."'
+                data-name_int='".$ligne['name_int']."'
+                data-target='#exampleModal'>
+  Supprimer
+</button>
+
+
+                
+                </div>
+                
+                </div>
+               
+                
+               
+                
+                </td>";
             echo "</tr>";
 
         }
@@ -34,8 +68,32 @@
             </tbody>
         </table>
     </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="msgInfo"></div>
+      <div id="formulaire"></div>
+      
+          
+
+
+      </div>
+    
+    </div>
+  </div>
+</div>
+
         <?php 
         
         $contenuAafficher =  ob_get_clean();
         require_once 'views/template.php'; ?>
-
