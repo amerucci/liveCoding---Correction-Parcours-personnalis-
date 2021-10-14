@@ -77,6 +77,7 @@ class Intervention extends Database
             array_push($req, 'AND step_int=?');
             array_push($value, $_GET['etage']);
         }
+        
         if(!empty($_GET['date'])){
             array_push($req, 'AND date_int=?');
             array_push($value, $_GET['date']);
@@ -86,10 +87,15 @@ class Intervention extends Database
     
         $search = $this->connect()->prepare('SELECT * FROM interventions WHERE 1=1 '.$request.'');
         $search->execute($value);
-        //   var_dump ($req);
-        // echo $request;
-        //  var_dump ($value);
+    //     echo "<pre>";
+    //       var_dump ($req);
+    //       echo "</pre>";
+    //    // echo $request;
+    //    echo "<pre>";
+    //      var_dump ($value);
+    //      echo "</pre>";
         // $search->debugDumpParams();
+        // die;
         $resultSearch = $search->fetchAll(); //On lui demande de nous retourner dans la variable $int le résultat de notre requête sous forme de tableau.
         return $resultSearch;
        

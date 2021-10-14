@@ -95,5 +95,7 @@
 
         <?php 
         
-        $contenuAafficher =  ob_get_clean();
+         $contenuAafficher =  ob_get_clean();
+         //var_dump($contenuAafficher); 
+       
         require_once 'views/template.php'; ?>

@@ -33,7 +33,9 @@ function delete(){
 function add(){
     $add = new Intervention(); // Je crée mon objet qui utilise la class Intervention
     $add->add(); // On appelle la méthode Update dans notre objet
-  listing();
+ echo "<script>window.location = './';</script>";
+    
+  //listing();
 }
 
 function search(){

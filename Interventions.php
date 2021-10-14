@@ -2,6 +2,7 @@
 
 require_once 'Database.php';
 
+
 class Intervention extends Database
 {
     public function delete(){

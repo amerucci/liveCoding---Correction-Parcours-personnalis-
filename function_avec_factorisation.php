@@ -13,13 +13,14 @@ function connect() //fonction de connextion à la base
          die('Erreur : '.$e->getMessage());
      }
  }
-
+ 
+//Function Delete an intervention
  function delete(){
     $supprimer = connect()->prepare('DELETE From interventions WHERE id_int=:id');
     $supprimer->bindParam(':id', $_GET['id']);
     $supprimer->execute();
  }
-
+//Function Update an intervention
  function update(){
     $modifier = connect()->prepare('UPDATE interventions SET date_int = :date, step_int=:etage, name_int=:intervention WHERE id_int = :id');
     $modifier->bindParam(':date', $_GET['date']);
@@ -28,7 +29,12 @@ function connect() //fonction de connextion à la base
     $modifier->bindParam(':id', $_GET['id']);
     $modifier->execute();
  }
-
+ 
+ /**
+  * add
+  *
+  * @return void
+  */
  function add(){
       //On prépare notre requete d'insertion
     $ajouter = connect()->prepare('INSERT INTO interventions ( date_int, step_int, name_int) VALUES (:date, :step, :name)'); //ON prépare la requete
